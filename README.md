@@ -36,13 +36,68 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 /* write all the steps invloved */
 
+1.Use module projname(input,output) to start the Verilog programming.
+
+2.Assign inputs and outputs using the word input and output respectively.
+
+3.Use defined keywords like wire,assign and required logic gates to represent the boolean expression.
+
+4.Use each output to represent one for difference and the other for borrow.
+
+5.End the verilog program using keyword endmodule
+
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: Sharma R RegisterNumber:212224230261
 */
+```
+module ex7(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
+
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+   begin
+	   if(j==0 && k==0)
+		   begin
+			q<=q;
+			qb<=qb;
+			end
+		else if(j!=k)
+		   begin
+			q<=j;
+			qb<=k;
+			end
+		else if(j==1 && k==1)
+		    begin
+			 q<=~q;
+			 qb<=~qb;
+			 end
+	end
+end	
+endmodule
+
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+
+![image](https://github.com/user-attachments/assets/197a47f4-ec2e-4f81-8baf-a7f45a4d7e6d)
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![image](https://github.com/user-attachments/assets/e3cc9cee-c2cf-470c-a240-4c91fe69f16c)
+
+
 **RESULTS**
+
+The program has been executed successfully.
